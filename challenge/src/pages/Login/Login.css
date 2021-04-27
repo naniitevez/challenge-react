@@ -1,0 +1,41 @@
+@import url(../../index.css);
+
+body {
+    background: url(../../images/superheroes-background.jpg);
+    background-repeat: no-repeat;
+    background-image: fixed;
+background-image: center;
+    background-size: cover;
+}
+
+.form__border {
+    display: flex;
+    flex-direction: column;
+    border: 5px outset #633b3b;
+    border-radius: 2rem;
+    box-shadow: -5px 5px 16px #000;;
+    padding: 7rem 2rem;
+}
+
+.form__button {
+    margin-top: 1rem;
+    background: var(--green);
+    border: 1px inset #000;
+    border-radius: 20px;
+    box-shadow: -3px 3px 8px #b1b1b1, 3px -3px 8px #ffffff;
+    cursor: pointer;
+}
+
+.form__container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form__input {
+    width: 20rem;
+    border-radius: 20px;
+    box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 6px #f8eaea;
+}
