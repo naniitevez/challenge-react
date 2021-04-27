@@ -1,5 +1,4 @@
-import { Container, Row, Col, Form } from "react-bootstrap";
-import SubmitButton from "./components/Button";
+import { Container, Row, Col, Form, Button } from "react-bootstrap";
 import "./Login.css";
 import InputComponent from "./components/InputComponent";
 
@@ -23,7 +22,9 @@ const Login = () => {
                   type={"password"}
                   placeholder={"Ingresa tu contraseña"}
                 />
-                <SubmitButton />
+                <Button className="form__button" variant="light" type="submit">
+                  Ingresar
+                </Button>
               </div>
             </Form>
           </Col>
