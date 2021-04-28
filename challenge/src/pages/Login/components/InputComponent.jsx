@@ -1,8 +1,7 @@
+import { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 const InputComponent = ({
-  validationText,
-  handleSubmit,
   state,
   setState,
   idControl,
@@ -10,6 +9,7 @@ const InputComponent = ({
   type,
   placeholder,
 }) => {
+  const [warningText, setWarningText] = useState(false)
   
   const inputValidation = (e) => {
     setState(e.target.value);
@@ -17,11 +17,10 @@ const InputComponent = ({
   
   //Al ser ejecutado por las funciones OnKeyUp y OnBlur, 
   const handleValidation = (e) => {
-    handleSubmit(e.target.value)
     if (state === "") {
-      validationText = false 
+      setWarningText(true) 
     } else  {
-      validationText = true
+      setWarningText(false)
     }
   }
 
@@ -38,7 +37,7 @@ const InputComponent = ({
           onKeyUp={handleValidation}
           onBlur={handleValidation}
         />
-        {!validationText && (
+        {warningText && (
           <div>
             <Form.Text className="text-muted">
               El campo de {label} no puede estar vacío.

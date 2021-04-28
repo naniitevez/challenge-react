@@ -6,7 +6,6 @@ import { useState } from "react";
 const Login = () => {
   const [inputEmail, setInputEmail] = useState("")
   const [inputPassword, setInputPassword] = useState("")
-  const [isValid, setIsValid] = useState(true)
 
   return (
     <>
@@ -16,7 +15,6 @@ const Login = () => {
             <Form className="form__container">
               <div className="form__border">
                 <InputComponent
-                  validationText={isValid}
                   idControl={"formBasicEmail"}
                   label={"Email"}
                   type={"email"}
@@ -25,7 +23,6 @@ const Login = () => {
                   setState={setInputEmail}
                 />
                 <InputComponent
-                  validationText={isValid}
                   idControl={"formBasicPassword"}
                   label={"Contraseña"}
                   type={"password"}
