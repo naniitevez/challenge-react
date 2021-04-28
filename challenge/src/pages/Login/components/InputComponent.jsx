@@ -1,29 +1,29 @@
 import Form from "react-bootstrap/Form";
 
 const InputComponent = ({
+  validation,
+  handleSubmit,
   state,
   setState,
-  estado,
-  setEstado,
   idControl,
   label,
   type,
   placeholder,
 }) => {
-  let valid = true;
-
-  const validations = () => {
+  
+  const inputValidation = (e) => {
+    setState(e.target.value);
+  };
+  
+  //Al ser ejecutado por las funciones OnKeyUp y OnBlur, 
+  const handleValidation = (e) => {
+    handleSubmit(e.target.value)
     if (state === "") {
-      valid = false
-    } else {
-      valid = true
+      validation = false 
+    } else  {
+      validation = true
     }
   }
-
-  const inputValidation = (e) => {
-    setState(e.target.value)
-  }
-
 
   return (
     <>
@@ -35,16 +35,16 @@ const InputComponent = ({
           placeholder={placeholder}
           value={state}
           onChange={inputValidation}
-          onKeyUp={() => console.log("on KEY UP")}
-          onBlur={() => console.log("on BLUR")}
+          onKeyUp={handleValidation}
+          onBlur={handleValidation}
         />
-      {!valid && (
-        <div>
-          <Form.Text className="text-muted">
-            El campo de {label} no puede estar vacío.
-          </Form.Text>
-        </div>
-      )}
+        {!validation && (
+          <div>
+            <Form.Text className="text-muted">
+              El campo de {label} no puede estar vacío.
+            </Form.Text>
+          </div>
+        )}
       </Form.Group>
     </>
   );

@@ -6,6 +6,15 @@ import { useState } from "react";
 const Login = () => {
   const [inputEmail, setInputEmail] = useState("")
   const [inputPassword, setInputPassword] = useState("")
+  const [isValid, setIsValid] = useState(true)
+
+  const handleSubmit = (validationState) => {
+    setIsValid(validationState)
+    if (validationState) {
+      console.log('la validacion es true. Submit')
+      console.log(validationState)
+    }
+  }
 
   return (
     <>
@@ -15,6 +24,8 @@ const Login = () => {
             <Form className="form__container">
               <div className="form__border">
                 <InputComponent
+                  validation={isValid}
+                  handleSubmit={validationState => handleSubmit(validationState)}
                   idControl={"formBasicEmail"}
                   label={"Email"}
                   type={"email"}
