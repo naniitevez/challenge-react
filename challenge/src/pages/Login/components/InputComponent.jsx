@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 const InputComponent = ({
+  handleValidSubmit,
   state,
   setState,
   idControl,
@@ -19,8 +20,10 @@ const InputComponent = ({
   const handleValidation = (e) => {
     if (state === "") {
       setWarningText(true) 
+      handleValidSubmit(false)
     } else  {
       setWarningText(false)
+      handleValidSubmit(true)
     }
   }
 
