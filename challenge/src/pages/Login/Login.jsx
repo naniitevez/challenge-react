@@ -8,14 +8,6 @@ const Login = () => {
   const [inputPassword, setInputPassword] = useState("")
   const [isValid, setIsValid] = useState(true)
 
-  const handleSubmit = (validationState) => {
-    setIsValid(validationState)
-    if (validationState) {
-      console.log('la validacion es true. Submit')
-      console.log(validationState)
-    }
-  }
-
   return (
     <>
       <Container>
@@ -24,8 +16,7 @@ const Login = () => {
             <Form className="form__container">
               <div className="form__border">
                 <InputComponent
-                  validation={isValid}
-                  handleSubmit={validationState => handleSubmit(validationState)}
+                  validationText={isValid}
                   idControl={"formBasicEmail"}
                   label={"Email"}
                   type={"email"}
@@ -34,6 +25,7 @@ const Login = () => {
                   setState={setInputEmail}
                 />
                 <InputComponent
+                  validationText={isValid}
                   idControl={"formBasicPassword"}
                   label={"Contraseña"}
                   type={"password"}

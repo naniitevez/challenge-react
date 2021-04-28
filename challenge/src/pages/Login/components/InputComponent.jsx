@@ -1,7 +1,7 @@
 import Form from "react-bootstrap/Form";
 
 const InputComponent = ({
-  validation,
+  validationText,
   handleSubmit,
   state,
   setState,
@@ -19,9 +19,9 @@ const InputComponent = ({
   const handleValidation = (e) => {
     handleSubmit(e.target.value)
     if (state === "") {
-      validation = false 
+      validationText = false 
     } else  {
-      validation = true
+      validationText = true
     }
   }
 
@@ -38,7 +38,7 @@ const InputComponent = ({
           onKeyUp={handleValidation}
           onBlur={handleValidation}
         />
-        {!validation && (
+        {!validationText && (
           <div>
             <Form.Text className="text-muted">
               El campo de {label} no puede estar vacío.
