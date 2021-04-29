@@ -3,11 +3,13 @@ import callToApi from "../../api/Index";
 import "./Login.css";
 import InputComponent from "./components/InputComponent";
 import { useState } from "react";
+import {useHistory} from 'react-router-dom'
 
 const Login = () => {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
   const [validSubmit, setValidsubmit] = useState(false);
+  let history = useHistory()
 
   //Esta funcion se encarga de hacer la validación final, recibiendo un booleano si
   //los items fueron completados.
@@ -36,14 +38,14 @@ const Login = () => {
         }})
         
         localStorage.setItem('token', response.token)
-
       } catch (error) {
         alert("Algo salió mal.")
       }
     } else {
       alert("Verifica que todos los campos estén completos.")
     }
-
+    
+    history.push("/home")
   };
 
   return (
