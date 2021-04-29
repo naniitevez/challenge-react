@@ -9,6 +9,8 @@ const Login = () => {
   const [inputPassword, setInputPassword] = useState("");
   const [validSubmit, setValidsubmit] = useState(false);
 
+  //Esta funcion se encarga de hacer la validación final, recibiendo un booleano si
+  //los items fueron completados.
   const handleValidSubmit = (bool) => {
     if (bool) {
       setValidsubmit(true);
@@ -17,24 +19,31 @@ const Login = () => {
     }
   };
 
+  //Al clickear el boton de ingresar, se realiza el fetch post
+  //y se guarda el token el localstorage
   const submitOnClick = async (e) => {
     e.preventDefault()
+    
     if (validSubmit) {
+      let data = `?email=${inputEmail}&password=${inputPassword}`
+
       try {
-        await callToApi({url: 'http://challenge-react.alkemy.org?email=challenge@alkemy.org&password=react',
+        const response = await callToApi({url: `http://challenge-react.alkemy.org${data}`,
         method: 'POST',
         body: {
           email: inputEmail,
           password: inputPassword
         }})
+        
+        localStorage.setItem('token', response.token)
+
       } catch (error) {
         alert("Algo salió mal.")
-      } finally {
-        console.log('terminó el submitOnClick')
       }
     } else {
-      alert("Algo salió mal.")
+      alert("Verifica que todos los campos estén completos.")
     }
+
   };
 
   return (

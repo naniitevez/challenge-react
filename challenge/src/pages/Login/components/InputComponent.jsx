@@ -16,7 +16,8 @@ const InputComponent = ({
     setState(e.target.value);
   };
   
-  //Al ser ejecutado por las funciones OnKeyUp y OnBlur, 
+  //Se ejecuta con las funciones onKeyUp y onBlur
+  //actualiza el estado encargado de renderizar el texto advertencia.
   const handleValidation = (e) => {
     if (state === "") {
       setWarningText(true) 
