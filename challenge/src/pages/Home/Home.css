@@ -1,0 +1,67 @@
+@import url(../../index.css);
+
+body {
+    background: url(../../images/Comic-bg.jpg);
+    background-repeat: no-repeat;
+    background-image: fixed;
+    background-image: center;
+    background-size: cover;
+}
+
+/*My navbar*/
+
+.myNavbar {
+    display: flex;
+    justify-content: space-between;
+    box-shadow: -5px 5px 16px #000;
+}
+
+#searcher {
+    width: 30rem;
+}
+
+/*My Cards*/
+
+.card__container {
+    width: 225px;
+    height: 410px;
+    background: #f9eac3;
+    border: 1px solid black;
+    border-radius: .5em;
+    box-shadow: -5px 5px 16px #000;
+
+}
+
+.myImg {
+    object-fit: cover;
+}
+
+.myRow {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2em 0;
+}
+
+.row__container {
+    background: #00000091;
+    border-radius: 1em;
+    padding: 1rem;
+    margin: 2rem 0;
+}
+
+.myProgressBar {
+    margin-bottom: 0.5rem;
+    border: 1px solid #000;
+}
+
+.myButtons {
+    box-shadow: -1px 1px 3px #0006;
+}
+
+.buttons__container {
+    display: flex;
+    justify-content: space-around;
+    padding: 0 1em;
+}
