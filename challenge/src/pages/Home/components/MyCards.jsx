@@ -1,34 +1,34 @@
 import "../Home.css";
 import { Card, Col, ProgressBar, Row, Button } from "react-bootstrap";
 
-const MyCards = () => {
+const MyCards = (hero) => {
   return (
     <Card className="card__container">
       <Card.Img
         className="myImg"
         variant="top"
-        src="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
-        height="160"
+        src={hero.image.url}
+        height="200"
       />
       <Card.Body>
-        <Card.Title>"algo{}</Card.Title>
+        <Card.Title>{hero.name}</Card.Title>
         <div>
           <Row>
-            <Col style={{paddingLeft: "7px" , paddingRight: "0"}}>
+            <Col style={{paddingRight: "0"}}>
               <div>Combat: </div>
-              <div>Dutability: </div>
+              <div>Durability: </div>
               <div>Intelligence: </div>
               <div>Power: </div>
               <div>Speed: </div>
               <div>Strenght: </div>
             </Col>
             <Col style={{padding: "3px"}}>
-              <ProgressBar variant="warning" className="myProgressBar" now="40" label="30%" />
-              <ProgressBar variant="success" className="myProgressBar" now="40" label="30%" />
-              <ProgressBar variant="primary" className="myProgressBar" now="40" label="30%" />
-              <ProgressBar variant="danger" className="myProgressBar" now="40" label="30%" />
-              <ProgressBar variant="secondary" className="myProgressBar" now="40" label="30%" />
-              <ProgressBar variant="info" className="myProgressBar" now="40" label="30%" />
+              <ProgressBar variant="warning" className="myProgressBar" now={hero.powerstats.combat} label={hero.powerstats.combat} />
+              <ProgressBar variant="success" className="myProgressBar" now={hero.powerstats.durability} label={hero.powerstats.durability} />
+              <ProgressBar variant="primary" className="myProgressBar" now={hero.powerstats.intelligence} label={hero.powerstats.intelligence} />
+              <ProgressBar variant="danger" className="myProgressBar" now={hero.powerstats.power} label={hero.powerstats.power} />
+              <ProgressBar variant="secondary" className="myProgressBar" now={hero.powerstats.speed} label={hero.powerstats.speed} />
+              <ProgressBar variant="info" className="myProgressBar" now={hero.powerstats.strength} label={hero.powerstats.strength} />
             </Col>
           </Row>
         </div>

@@ -23,12 +23,13 @@ body {
 /*My Cards*/
 
 .card__container {
-    width: 225px;
-    height: 410px;
+    width: 255px;
+    height: 460px;
     background: #f9eac3;
     border: 1px solid black;
     border-radius: .5em;
     box-shadow: -5px 5px 16px #000;
+    margin: 1em 0;
 
 }
 
@@ -36,19 +37,13 @@ body {
     object-fit: cover;
 }
 
-.myRow {
+.row__container {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin: 2em 0;
-}
-
-.row__container {
     background: #00000091;
     border-radius: 1em;
-    padding: 1rem;
-    margin: 2rem 0;
+    padding: 2rem;
+    margin: 2em;
 }
 
 .myProgressBar {
@@ -63,5 +58,5 @@ body {
 .buttons__container {
     display: flex;
     justify-content: space-around;
-    padding: 0 1em;
+    padding: 0.5em 1em;
 }
