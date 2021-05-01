@@ -5,7 +5,7 @@ body {
     background-repeat: no-repeat;
     background-image: fixed;
     background-image: center;
-    background-size: cover;
+    background-size: contain;
 }
 
 /*My navbar*/
@@ -23,8 +23,8 @@ body {
 /*My Cards*/
 
 .card__container {
-    width: 255px;
-    height: 460px;
+    width: 16rem;
+    height: 37rem;
     background: #f9eac3;
     border: 1px solid black;
     border-radius: .5em;
@@ -39,7 +39,9 @@ body {
 
 .row__container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
     background: #00000091;
     border-radius: 1em;
     padding: 2rem;
@@ -58,5 +60,5 @@ body {
 .buttons__container {
     display: flex;
     justify-content: space-around;
-    padding: 0.5em 1em;
+    padding: 1rem;
 }
