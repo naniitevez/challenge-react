@@ -1,12 +1,5 @@
 @import url(../../index.css);
 
-body {
-    background: url(../../images/Comic-bg.jpg);
-    background-repeat: no-repeat;
-    background-image: fixed;
-    background-image: center;
-    background-size: contain;
-}
 
 /*My navbar*/
 

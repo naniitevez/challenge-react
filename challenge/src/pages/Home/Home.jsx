@@ -10,7 +10,6 @@ const Home = () => {
   return (
     <>
       <MyNavbar />
-      <button onClick={() => console.log(heroes)}>CliCK</button>
       <Container>
         <div className="row__container">
             {
