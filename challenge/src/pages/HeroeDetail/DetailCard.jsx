@@ -18,13 +18,18 @@ const DetailCard = (myHero) => {
                 <Image src={myHero.image.url} thumbnail />
               </Row>
               <Row>
-                <h2>{myHero.biography["full-name"]}</h2>
+                <h2><em>{myHero.name}</em></h2>
               </Row>
             </Col>
             <Col className="info__container">
               <p className="info-flex">
+                <h5>{myHero.biography["full-name"]}</h5>
+              </p>
+              <p className="info-flex">
                 <h5>Alias: </h5>
-                {myHero.biography.aliases}
+                {
+                  myHero.biography.aliases.join(' - ')
+                }
               </p>
               <p className="info-flex">
                 <h5>Alter-egos: </h5>
@@ -57,12 +62,13 @@ const DetailCard = (myHero) => {
             </Col>
             <Col>
               <Col>
+              <h2><u>Estadísticas</u></h2>
                 <div>
                   <h5>Combate: </h5>
                   <ProgressBar
                     variant="warning"
                     now={combat}
-                    label={` %`}
+                    label={`${combat} %`}
                   />
                 </div>
                 <div>
@@ -70,7 +76,7 @@ const DetailCard = (myHero) => {
                   <ProgressBar
                     variant="success"
                     now={durability}
-                    label={` %`}
+                    label={`${durability} %`}
                   />
                 </div>
                 <div>
@@ -78,19 +84,19 @@ const DetailCard = (myHero) => {
                   <ProgressBar
                     variant="primary"
                     now={intelligence}
-                    label={` %`}
+                    label={`${intelligence} %`}
                   />
                 </div>
                 <div>
                   <h5>Energía: </h5>
-                  <ProgressBar variant="danger" now={power} label={` %`} />
+                  <ProgressBar variant="danger" now={power} label={`${power} %`} />
                 </div>
                 <div>
                   <h5>Velocidad: </h5>
                   <ProgressBar
                     variant="secondary"
                     now={speed}
-                    label={` %`}
+                    label={`${speed} %`}
                   />
                 </div>
                 <div>
@@ -98,12 +104,12 @@ const DetailCard = (myHero) => {
                   <ProgressBar
                     variant="info"
                     now={strength}
-                    label={` %`}
+                    label={`${strength} %`}
                   />
                 </div>
               </Col>
               <Col>
-                <h5>Publisher: {myHero.biography.publisher}</h5>
+                <h5 style={{marginTop: "3rem"}}>Publisher: {myHero.biography.publisher}</h5>
               </Col>
             </Col>
           </Row>
