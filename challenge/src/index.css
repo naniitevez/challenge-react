@@ -12,6 +12,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: url(./images/Comic-bg.jpg);
+  background-attachment: fixed;
   background-repeat: no-repeat;
   background-image: fixed;
   background-image: center;

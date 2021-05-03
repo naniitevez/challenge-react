@@ -42,7 +42,7 @@ const HeroesProvider = ({children}) => {
     }, []);
 
     return (
-        <HeroesContext.Provider value={{heroes}}>
+        <HeroesContext.Provider value={{heroes, token}}>
             {children}
         </HeroesContext.Provider>
     )

@@ -1,0 +1,11 @@
+.search-card__container {
+    width: 24rem;
+    padding: 2rem 1rem 1rem 2rem;
+    margin: 0.5rem 0
+}
+
+.search__container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

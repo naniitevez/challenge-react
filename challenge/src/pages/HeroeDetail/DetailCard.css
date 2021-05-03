@@ -1,13 +1,3 @@
-body {
-    height: 100vh;
-    background: url(../../images/Comic-bg.jpg);
-    background-repeat: no-repeat;
-    background-image: fixed;
-    background-image: center;
-    background-size: cover;
-}
-
-
 .detail__container {
     background: #f9eac3;
     border: 1px solid black;
