@@ -1,7 +1,12 @@
 import { Row, Col } from "react-bootstrap";
+import './GroupStats.css'
 
 const GroupStats = ({ heroes }) => {
   let stats = [];
+//   let weightStats = [];
+//   let heightStats = [];
+//   let teamWeight;
+//   let teamHeight;
   let combat = [];
   let durability = [];
   let intelligence = [];
@@ -24,6 +29,8 @@ const GroupStats = ({ heroes }) => {
 
   for (let i = 0; i < heroes.length; i++) {
     stats.push(heroes[i].powerstats);
+    // weightStats.push(heroes[i].appearance.weight[1])
+    // heightStats.push(heroes[i].appearance.height[1])
   }
 
   if (stats.length) {
@@ -53,10 +60,10 @@ const GroupStats = ({ heroes }) => {
   return (
     <>
       <Row>
-        <h2>Estadísticas del grupo:</h2>
+        <h2 className="stats-title"><em>Estadísticas del grupo:</em></h2>
       </Row>
       <Row>
-        <Col md={4}>
+        {/* <Col md={4}>
           <p>
             <h5>Peso promedio del grupo:</h5>
             {}
@@ -65,32 +72,32 @@ const GroupStats = ({ heroes }) => {
             <h5>Altura promedio del grupo:</h5>
             {}
           </p>
-        </Col>
+        </Col> */}
         <Col>
           <Row>
-            <h5>Poderes acumulativos del grupo:</h5>
+            <h5 style={{color: "#f9eac3"}}>Poderes acumulativos del grupo:</h5>
           </Row>
           <Row>
             <Col>
               <div>
-                <h5>Combate: {teamCombat}</h5>
+                <h5 style={{color: "#f9eac3"}}>Combate: {teamCombat}</h5>
               </div>
               <div>
-                <h5>Durabilidad: {teamDurability}</h5>
+                <h5 style={{color: "#f9eac3"}}>Durabilidad: {teamDurability}</h5>
               </div>
               <div>
-                <h5>Inteligencia: {teamIntelligence}</h5>
+                <h5 style={{color: "#f9eac3"}}>Inteligencia: {teamIntelligence}</h5>
               </div>
             </Col>
             <Col>
               <div>
-                <h5>Energía: {teamPower}</h5>
+                <h5 style={{color: "#f9eac3"}}>Energía: {teamPower}</h5>
               </div>
               <div>
-                <h5>Velocidad: {teamSpeed}</h5>
+                <h5 style={{color: "#f9eac3"}}>Velocidad: {teamSpeed}</h5>
               </div>
               <div>
-                <h5>Fuerza: {teamStrength}</h5>
+                <h5 style={{color: "#f9eac3"}}>Fuerza: {teamStrength}</h5>
               </div>
             </Col>
           </Row>
