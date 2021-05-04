@@ -22,43 +22,43 @@ const DetailCard = (myHero) => {
               </Row>
             </Col>
             <Col className="info__container">
-              <p className="info-flex">
+              <div className="info-flex">
                 <h5>{myHero.biography["full-name"]}</h5>
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Alias: </h5>
                 {
                   myHero.biography.aliases.join(' - ')
                 }
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Alter-egos: </h5>
                 {myHero.biography["alter-egos"]}
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Género: </h5>
                 {myHero.appearance.gender}
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Peso: </h5>
                 {myHero.appearance.weight[1]}
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Altura: </h5>
                 {myHero.appearance.height[1]}
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Color de ojos: </h5>
                 {myHero.appearance["eye-color"]}
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Color de cabello: </h5>
                 {myHero.appearance["hair-color"]}
-              </p>
-              <p className="info-flex">
+              </div>
+              <div className="info-flex">
                 <h5>Inclinación: </h5>
                 {myHero.biography.alignment}
-              </p>
+              </div>
             </Col>
             <Col>
               <Col>

@@ -55,3 +55,13 @@
     justify-content: space-around;
     padding: 1rem;
 }
+
+.team-stats__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: #00000091;
+    border-radius: 1em;
+    padding: 2rem;
+    margin: 2em;
+}

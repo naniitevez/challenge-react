@@ -4,6 +4,7 @@ import { useContext, useState } from "react";
 import HeroesContext from "../../context/superheros/Index";
 import MyCard from "./components/MyCard";
 import Searchresult from "../SearchResult/SearchResult";
+import GroupStats from "./components/GroupStats";
 
 const Home = () => {
   const { heroes, token } = useContext(HeroesContext);
@@ -21,7 +22,12 @@ const Home = () => {
  
   return (
     <>
-      <MyNavbar onSearch={handleOnSearchClick}/>
+      <MyNavbar onSearch={handleOnSearchClick}/> 
+      <Container>
+        <div className="team-stats__container">
+          <GroupStats heroes={heroes}/>
+        </div>
+      </Container>
       <Container>
         {
           !isSearching ?
