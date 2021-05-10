@@ -1,12 +1,12 @@
 @import url(../../index.css);
 
-body {
+/* body {
     background: url(../../images/Comic-bg.jpg);
     background-repeat: no-repeat;
     background-image: fixed;
     background-image: center;
     background-size: cover;
-}
+} */
 
 .form__border {
     display: flex;

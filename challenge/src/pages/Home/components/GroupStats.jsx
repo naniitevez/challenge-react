@@ -3,10 +3,10 @@ import './GroupStats.css'
 
 const GroupStats = ({ heroes }) => {
   let stats = [];
-//   let weightStats = [];
-//   let heightStats = [];
-//   let teamWeight;
-//   let teamHeight;
+  let weightStats = [];
+  let heightStats = [];
+  let teamWeight = [];
+  let teamHeight = [];
   let combat = [];
   let durability = [];
   let intelligence = [];
@@ -29,8 +29,8 @@ const GroupStats = ({ heroes }) => {
 
   for (let i = 0; i < heroes.length; i++) {
     stats.push(heroes[i].powerstats);
-    // weightStats.push(heroes[i].appearance.weight[1])
-    // heightStats.push(heroes[i].appearance.height[1])
+    weightStats.push(heroes[i].appearance.weight[1])
+    heightStats.push(heroes[i].appearance.height[1])
   }
 
   if (stats.length) {
@@ -56,48 +56,68 @@ const GroupStats = ({ heroes }) => {
     teamSpeed = speedStat.reduce(reducer)
     teamStrength = strengthStat.reduce(reducer)
   }
-
+  
+  if (weightStats.length) {
+    let weight = []
+    for (let i = 0; i < weightStats.length; i++) {
+      let element = weightStats[i].replace(' kg', '')
+      weight.push(element)
+    }
+    let totalWeight = weight.map((i) => Number(i))
+    teamWeight = totalWeight.reduce(reducer)
+  }
+  
+  if (heightStats.length) {
+    let height = []
+    for (let i = 0; i < heightStats.length; i++) {
+      let element = heightStats[i].replace(' cm', '')
+      height.push(element)
+    }
+    let totalHeight = height.map((i) => Number(i))
+    teamHeight = totalHeight.reduce(reducer)
+  }
+  
   return (
     <>
       <Row>
         <h2 className="stats-title"><em>Estadísticas del grupo:</em></h2>
       </Row>
       <Row>
-        {/* <Col md={4}>
-          <p>
-            <h5>Peso promedio del grupo:</h5>
-            {}
-          </p>
-          <p>
-            <h5>Altura promedio del grupo:</h5>
-            {}
-          </p>
-        </Col> */}
+        <Col md={4}>
+            <div style={{color: "#f9eac3"}}>
+              <h5 className="h5-titles">Peso promedio del grupo: </h5>
+              {`${teamWeight} kg`}
+            </div>
+            <div style={{color: "#f9eac3"}}>
+              <h5 className="h5-titles">Altura promedio del grupo: </h5>
+              {`${teamHeight} cm`}
+            </div>
+        </Col>
         <Col>
-          <Row>
-            <h5 style={{color: "#f9eac3"}}>Poderes acumulativos del grupo:</h5>
-          </Row>
+          {/* <Row>
+            <h5 className="h5-titles">Poder Destacado del grupo: </h5>
+          </Row> */}
           <Row>
             <Col>
               <div>
-                <h5 style={{color: "#f9eac3"}}>Combate: {teamCombat}</h5>
+                <h5 className="h5-titles">Combate: {teamCombat}</h5>
               </div>
               <div>
-                <h5 style={{color: "#f9eac3"}}>Durabilidad: {teamDurability}</h5>
+                <h5 className="h5-titles">Durabilidad: {teamDurability}</h5>
               </div>
               <div>
-                <h5 style={{color: "#f9eac3"}}>Inteligencia: {teamIntelligence}</h5>
+                <h5 className="h5-titles">Inteligencia: {teamIntelligence}</h5>
               </div>
             </Col>
             <Col>
               <div>
-                <h5 style={{color: "#f9eac3"}}>Energía: {teamPower}</h5>
+                <h5 className="h5-titles">Energía: {teamPower}</h5>
               </div>
               <div>
-                <h5 style={{color: "#f9eac3"}}>Velocidad: {teamSpeed}</h5>
+                <h5 className="h5-titles">Velocidad: {teamSpeed}</h5>
               </div>
               <div>
-                <h5 style={{color: "#f9eac3"}}>Fuerza: {teamStrength}</h5>
+                <h5 className="h5-titles">Fuerza: {teamStrength}</h5>
               </div>
             </Col>
           </Row>
