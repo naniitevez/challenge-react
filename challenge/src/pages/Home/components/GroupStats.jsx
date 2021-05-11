@@ -1,5 +1,5 @@
 import { Row, Col } from "react-bootstrap";
-import './GroupStats.css'
+import "./GroupStats.css";
 
 const GroupStats = ({ heroes }) => {
   let stats = [];
@@ -19,18 +19,49 @@ const GroupStats = ({ heroes }) => {
   let powerStat;
   let speedStat;
   let strengthStat;
-  const reducer = (acc, cur) => acc + cur; 
+  const reducer = (acc, cur) => acc + cur;
   let teamCombat;
   let teamDurability;
   let teamIntelligence;
   let teamPower;
   let teamSpeed;
   let teamStrength;
+  let averagedStats = [];
+  let groupCategory;
+
+  const averageStats = () => {
+    averagedStats.push(teamCombat);
+    averagedStats.push(teamDurability);
+    averagedStats.push(teamIntelligence);
+    averagedStats.push(teamPower);
+    averagedStats.push(teamSpeed);
+    averagedStats.push(teamStrength);
+
+    let max = 0;
+    for (let i = 0; i < averagedStats.length; i++) {
+      if (averagedStats[i] > max) {
+        max = averagedStats[i];
+      }
+    }
+    if (max === teamCombat) {
+      groupCategory = `Combate: (${teamCombat} pts)`;
+    } else if (max === teamDurability) {
+      groupCategory = `Durabilidad: (${teamDurability} pts)`;
+    } else if (max === teamIntelligence) {
+      groupCategory = `Inteligencia: (${teamIntelligence} pts)`;
+    } else if (max === teamPower) {
+      groupCategory = `Energía: (${teamPower} pts)`;
+    } else if (max === teamSpeed) {
+      groupCategory = `Velocidad: (${teamSpeed} pts)`;
+    } else {
+      groupCategory = `Fuerza: (${teamStrength} pts)`;
+    }
+  };
 
   for (let i = 0; i < heroes.length; i++) {
     stats.push(heroes[i].powerstats);
-    weightStats.push(heroes[i].appearance.weight[1])
-    heightStats.push(heroes[i].appearance.height[1])
+    weightStats.push(heroes[i].appearance.weight[1]);
+    heightStats.push(heroes[i].appearance.height[1]);
   }
 
   if (stats.length) {
@@ -43,81 +74,97 @@ const GroupStats = ({ heroes }) => {
       strength.push(stats[i].strength);
     }
     combatStat = combat.filter((stat) => stat !== "null").map((i) => Number(i));
-    durabilityStat = durability.filter((stat) => stat !== "null").map((i) => Number(i));
-    intelligenceStat = intelligence.filter((stat) => stat !== "null").map((i) => Number(i));
+    durabilityStat = durability
+      .filter((stat) => stat !== "null")
+      .map((i) => Number(i));
+    intelligenceStat = intelligence
+      .filter((stat) => stat !== "null")
+      .map((i) => Number(i));
     powerStat = power.filter((stat) => stat !== "null").map((i) => Number(i));
     speedStat = combat.filter((stat) => stat !== "null").map((i) => Number(i));
-    strengthStat = combat.filter((stat) => stat !== "null").map((i) => Number(i));
+    strengthStat = combat
+      .filter((stat) => stat !== "null")
+      .map((i) => Number(i));
 
-    teamCombat = combatStat.reduce(reducer)
-    teamDurability = durabilityStat.reduce(reducer)
-    teamIntelligence = intelligenceStat.reduce(reducer)
-    teamPower = powerStat.reduce(reducer)
-    teamSpeed = speedStat.reduce(reducer)
-    teamStrength = strengthStat.reduce(reducer)
+    teamCombat = combatStat.reduce(reducer);
+    teamDurability = durabilityStat.reduce(reducer);
+    teamIntelligence = intelligenceStat.reduce(reducer);
+    teamPower = powerStat.reduce(reducer);
+    teamSpeed = speedStat.reduce(reducer);
+    teamStrength = strengthStat.reduce(reducer);
+
+    averageStats();
   }
-  
+
   if (weightStats.length) {
-    let weight = []
+    let weight = [];
     for (let i = 0; i < weightStats.length; i++) {
-      let element = weightStats[i].replace(' kg', '')
-      weight.push(element)
+      let element = weightStats[i].replace(" kg", "");
+      weight.push(element);
     }
-    let totalWeight = weight.map((i) => Number(i))
-    teamWeight = totalWeight.reduce(reducer)
+    let totalWeight = weight.map((i) => Number(i));
+    teamWeight = totalWeight.reduce(reducer);
   }
-  
+
   if (heightStats.length) {
-    let height = []
+    let height = [];
     for (let i = 0; i < heightStats.length; i++) {
-      let element = heightStats[i].replace(' cm', '')
-      height.push(element)
+      let element = heightStats[i].replace(" cm", "");
+      height.push(element);
     }
-    let totalHeight = height.map((i) => Number(i))
-    teamHeight = totalHeight.reduce(reducer)
+    let totalHeight = height.map((i) => Number(i));
+    teamHeight = totalHeight.reduce(reducer);
   }
-  
+
   return (
     <>
       <Row>
-        <h2 className="stats-title"><em>Estadísticas del grupo:</em></h2>
+        <h3 className="stats-title">
+          <em>Estadísticas del grupo:</em>
+        </h3>
       </Row>
       <Row>
-        <Col md={4}>
-            <div style={{color: "#f9eac3"}}>
-              <h5 className="h5-titles">Peso promedio del grupo: </h5>
-              {`${teamWeight} kg`}
-            </div>
-            <div style={{color: "#f9eac3"}}>
-              <h5 className="h5-titles">Altura promedio del grupo: </h5>
-              {`${teamHeight} cm`}
-            </div>
+        <h5 className="h6-titles stats-title">
+          Grupo destacado por su: {groupCategory}
+        </h5>
+      </Row>
+      <Row  className="row__stats">
+        <Col className="col__average" md={4}>
+          <div>
+            <h6 className="h6-titles">Peso promedio del grupo: </h6>
+            {`${teamWeight} kg`}
+          </div>
+          <div>
+            <h6 className="h6-titles">Altura promedio del grupo: </h6>
+            {`${teamHeight} cm`}
+          </div>
         </Col>
         <Col>
-          {/* <Row>
-            <h5 className="h5-titles">Poder Destacado del grupo: </h5>
-          </Row> */}
           <Row>
-            <Col>
+            <Col className="col__stats">
               <div>
-                <h5 className="h5-titles">Combate: {teamCombat}</h5>
+                <h6 className="h6-titles">Combate: {`${teamCombat} pts`}</h6>
               </div>
               <div>
-                <h5 className="h5-titles">Durabilidad: {teamDurability}</h5>
+                <h6 className="h6-titles">
+                  Durabilidad: {`${teamDurability} pts`}
+                </h6>
               </div>
               <div>
-                <h5 className="h5-titles">Inteligencia: {teamIntelligence}</h5>
+                <h6 className="h6-titles">
+                  Inteligencia: {`${teamIntelligence} pts`}
+                </h6>
               </div>
             </Col>
-            <Col>
+            <Col className="col__stats">
               <div>
-                <h5 className="h5-titles">Energía: {teamPower}</h5>
+                <h6 className="h6-titles">Energía: {`${teamPower} pts`}</h6>
               </div>
               <div>
-                <h5 className="h5-titles">Velocidad: {teamSpeed}</h5>
+                <h6 className="h6-titles">Velocidad: {`${teamSpeed} pts`}</h6>
               </div>
               <div>
-                <h5 className="h5-titles">Fuerza: {teamStrength}</h5>
+                <h6 className="h6-titles">Fuerza: {`${teamStrength} pts`}</h6>
               </div>
             </Col>
           </Row>

@@ -1,8 +1,30 @@
+@import url(../../../index.css);
+
+
 .stats-title {
     color: #f9eac3;
     margin: 0 auto 1rem auto;
 }
 
-.h5-titles {
-    color: #f9eac3;
+.h6-titles {
+    color: var(--green);
+}
+
+.row__stats {
+    background: #f9eac3;
+    border-radius: 7px;
+    padding: 8px;
+}
+
+.col__stats {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
+}
+
+.col__average {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
