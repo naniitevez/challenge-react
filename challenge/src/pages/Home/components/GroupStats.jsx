@@ -29,6 +29,8 @@ const GroupStats = ({ heroes }) => {
   let averagedStats = [];
   let groupCategory;
 
+  //Este metodo identifica, entre los powerstats acumulados, cual es el mayor
+  //para categorizar al grupo.
   const averageStats = () => {
     averagedStats.push(teamCombat);
     averagedStats.push(teamDurability);
@@ -44,17 +46,17 @@ const GroupStats = ({ heroes }) => {
       }
     }
     if (max === teamCombat) {
-      groupCategory = `Combate: (${teamCombat} pts)`;
+      groupCategory = `Combate (${teamCombat} pts)`;
     } else if (max === teamDurability) {
-      groupCategory = `Durabilidad: (${teamDurability} pts)`;
+      groupCategory = `Durabilidad (${teamDurability} pts)`;
     } else if (max === teamIntelligence) {
-      groupCategory = `Inteligencia: (${teamIntelligence} pts)`;
+      groupCategory = `Inteligencia (${teamIntelligence} pts)`;
     } else if (max === teamPower) {
-      groupCategory = `Energía: (${teamPower} pts)`;
+      groupCategory = `Energía (${teamPower} pts)`;
     } else if (max === teamSpeed) {
-      groupCategory = `Velocidad: (${teamSpeed} pts)`;
+      groupCategory = `Velocidad (${teamSpeed} pts)`;
     } else {
-      groupCategory = `Fuerza: (${teamStrength} pts)`;
+      groupCategory = `Fuerza (${teamStrength} pts)`;
     }
   };
 
@@ -64,6 +66,7 @@ const GroupStats = ({ heroes }) => {
     heightStats.push(heroes[i].appearance.height[1]);
   }
 
+  //itero los heroes para obtener un array con todos los valores de los powerstats.
   if (stats.length) {
     for (let i = 0; i < stats.length; i++) {
       combat.push(stats[i].combat);
@@ -73,6 +76,9 @@ const GroupStats = ({ heroes }) => {
       speed.push(stats[i].speed);
       strength.push(stats[i].strength);
     }
+
+    //elimino los valores nulos y convierto los valores string en numeros
+    //para luego poder sumarlos.
     combatStat = combat.filter((stat) => stat !== "null").map((i) => Number(i));
     durabilityStat = durability
       .filter((stat) => stat !== "null")
@@ -96,6 +102,8 @@ const GroupStats = ({ heroes }) => {
     averageStats();
   }
 
+  //Hago el mismo procedimiento anterior pero con los pesos y alturas
+  //para calcular los promedios.
   if (weightStats.length) {
     let weight = [];
     for (let i = 0; i < weightStats.length; i++) {
@@ -125,7 +133,7 @@ const GroupStats = ({ heroes }) => {
       </Row>
       <Row>
         <h5 className="h6-titles stats-title">
-          Grupo destacado por su: {groupCategory}
+          Grupo destacado por su {groupCategory}
         </h5>
       </Row>
       <Row  className="row__stats">

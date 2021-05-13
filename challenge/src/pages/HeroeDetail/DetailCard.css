@@ -1,10 +1,21 @@
+.add-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.back-button {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 2rem;
+}
+
 .detail__container {
     background: #f9eac3;
     border: 1px solid black;
     border-radius: .5em;
     box-shadow: -5px 5px 16px #000;
-    padding: 3rem 1rem 3rem 3rem;
-    margin: 5rem 0;
+    padding: 1rem 3rem;
+    margin: 3rem 0;
 }
 
 .info__container {

@@ -77,7 +77,8 @@ const MyCard = (hero) => {
             <Button 
               className="myButtons"
               variant="danger"
-              size="sm">
+              size="sm"
+              onClick={() => alert("Lo siento, esta funcionalidad no está terminada")}>
                 Eliminar
             </Button>
         </div>
