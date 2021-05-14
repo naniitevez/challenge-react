@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Form from "react-bootstrap/Form";
+import '../Login.css'
 
 const InputComponent = ({
   handleValidSubmit,
@@ -43,7 +44,7 @@ const InputComponent = ({
         />
         {warningText && (
           <div>
-            <Form.Text className="text-muted">
+            <Form.Text id="text-muted">
               El campo de {label} no puede estar vacío.
             </Form.Text>
           </div>

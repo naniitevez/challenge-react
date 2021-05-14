@@ -5,8 +5,8 @@
 
 .back-button {
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
+    justify-content: flex-start;
+    margin:1rem 0 2rem 0;
 }
 
 .detail__container {
@@ -26,4 +26,5 @@
 .info-flex {
     display: flex;
     flex-direction: row;
+    margin-bottom: 5px;
 }

@@ -19,7 +19,7 @@ const Searchresult = ({ results }) => {
             </Row>
             <Card.Text>{results?.name}</Card.Text>
             <Row style={{marginTop: "5rem"}}>
-              <Button variant="primary">Go somewhere</Button>
+              <Button variant="primary">Añadir</Button>
             </Row>
           </Col>
         </Row>
