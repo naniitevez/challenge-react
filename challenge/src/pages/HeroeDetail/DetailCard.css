@@ -3,12 +3,6 @@
     justify-content: flex-end;
 }
 
-.back-button {
-    display: flex;
-    justify-content: flex-start;
-    margin:1rem 0 2rem 0;
-}
-
 .detail__container {
     background: #f9eac3;
     border: 1px solid black;

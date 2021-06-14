@@ -15,10 +15,9 @@ const Home = () => {
     setIsSearching(true);
 
     const response = await fetch(
-      `https://api.allorigins.win/get?url=https://www.superheroapi.com/api.php/${token}/search/${searchText}`
+      `https://www.superheroapi.com/api.php/${token}/search/${searchText}`
     );
-    let data = await response.json();
-    data = JSON.parse(data.contents);
+    let data = await response.json()
     setResults(data.results);
   };
 

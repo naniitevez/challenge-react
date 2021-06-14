@@ -16,7 +16,7 @@ const HeroesProvider = ({children}) => {
     useEffect(() => {
       const getRandomHeroes = async (random) => {
         const response = await fetch(
-          `https://superheroapi.com/api/${token}/${random}`
+          `https://superheroapi.com/api.php/${token}/${random}`
         );
         const hero = await response.json();
         return hero;

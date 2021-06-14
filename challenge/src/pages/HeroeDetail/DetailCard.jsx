@@ -16,14 +16,10 @@ const DetailCard = (myHero) => {
   let power = myHero.powerstats.power;
   let speed = myHero.powerstats.speed;
   let strength = myHero.powerstats.strength;
-  const backInHistory = useHistory();
 
   return (
     <Container fluid>
       <Container className="detail__container">
-      <Row className="back-button">
-        <Button onClick={() => backInHistory.push("/home")}>Volver</Button>
-      </Row>
         <Row>
           <Col>
             <Row>

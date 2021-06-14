@@ -6,8 +6,12 @@
     margin: 0 auto 1rem auto;
 }
 
-.h6-titles {
-    color: var(--green);
+.featuredPower {
+    color: var(--yellow);
+}
+
+.subtitles {
+    font-size: large;
 }
 
 .row__stats {
@@ -27,4 +31,9 @@
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+}
+
+.iconColor {
+    color: var(--yellow);
 }

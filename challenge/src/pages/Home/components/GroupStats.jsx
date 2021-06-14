@@ -128,51 +128,74 @@ const GroupStats = ({ heroes }) => {
     <>
       <Row>
         <h3 className="stats-title">
-          <em>Estadísticas del grupo:</em>
+          <em>
+            <u>Estadísticas del grupo:</u>
+          </em>
         </h3>
       </Row>
       <Row>
-        <h5 className="h6-titles stats-title">
-          Grupo destacado por su {groupCategory}
-        </h5>
+        <h3 className="featuredPower stats-title">
+          Grupo destacado por su{" "}
+          <em>
+            <strong>{groupCategory}</strong>
+          </em>
+        </h3>
       </Row>
-      <Row  className="row__stats">
+      <Row className="row__stats">
         <Col className="col__average" md={4}>
           <div>
-            <h6 className="h6-titles">Peso promedio del grupo: </h6>
-            {`${teamWeight} kg`}
+            <p className="subtitles">
+              <i className="fas fa-balance-scale-right iconColor"></i>Peso promedio
+              del grupo: <strong>{`${teamWeight} kg`}</strong>
+            </p>
           </div>
           <div>
-            <h6 className="h6-titles">Altura promedio del grupo: </h6>
-            {`${teamHeight} cm`}
+            <p className="subtitles">
+              <i className="fas fa-text-height iconColor"></i>Altura promedio del
+              grupo: <strong>{`${teamHeight} cm`}</strong>
+            </p>
           </div>
         </Col>
         <Col>
           <Row>
             <Col className="col__stats">
               <div>
-                <h6 className="h6-titles">Combate: {`${teamCombat} pts`}</h6>
+                <p className="subtitles">
+                  <i className="fas fa-award iconColor"></i>Combate:{" "}
+                  <strong>{`${teamCombat} pts`}</strong>
+                </p>
               </div>
               <div>
-                <h6 className="h6-titles">
-                  Durabilidad: {`${teamDurability} pts`}
-                </h6>
+                <p className="subtitles">
+                  <i className="fas fa-award iconColor"></i>Durabilidad:{" "}
+                  <strong>{`${teamDurability} pts`}</strong>
+                </p>
               </div>
               <div>
-                <h6 className="h6-titles">
-                  Inteligencia: {`${teamIntelligence} pts`}
-                </h6>
+                <p className="subtitles">
+                  <i className="fas fa-award iconColor"></i>Inteligencia:{" "}
+                  <strong>{`${teamIntelligence} pts`}</strong>
+                </p>
               </div>
             </Col>
             <Col className="col__stats">
               <div>
-                <h6 className="h6-titles">Energía: {`${teamPower} pts`}</h6>
+                <p className="subtitles">
+                  <i className="fas fa-award iconColor"></i>Energía:{" "}
+                  <strong>{`${teamPower} pts`}</strong>
+                </p>
               </div>
               <div>
-                <h6 className="h6-titles">Velocidad: {`${teamSpeed} pts`}</h6>
+                <p className="subtitles">
+                  <i className="fas fa-award iconColor"></i>Velocidad:{" "}
+                  <strong>{`${teamSpeed} pts`}</strong>
+                </p>
               </div>
               <div>
-                <h6 className="h6-titles">Fuerza: {`${teamStrength} pts`}</h6>
+                <p className="subtitles">
+                  <i className="fas fa-award iconColor"></i>Fuerza:{" "}
+                  <strong>{`${teamStrength} pts`}</strong>
+                </p>
               </div>
             </Col>
           </Row>
