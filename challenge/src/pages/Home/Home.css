@@ -16,6 +16,12 @@
 
 /*My Cards*/
 
+.buttons__container {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem;
+}
+
 .card__container {
     width: 16rem;
     height: 37rem;
@@ -27,8 +33,23 @@
 
 }
 
+.myButtons {
+    box-shadow: -1px 1px 3px #0006;
+    color: #fff;
+}
+
+.myButtons a {
+    color: #000;
+    text-decoration: none;
+}
+
 .myImg {
     object-fit: cover;
+}
+
+.myProgressBar {
+    margin-bottom: 0.5rem;
+    border: 1px solid #000;
 }
 
 .row__container {
@@ -40,22 +61,6 @@
     border-radius: 1em;
     padding: 2rem;
     margin: 2em;
-}
-
-.myProgressBar {
-    margin-bottom: 0.5rem;
-    border: 1px solid #000;
-}
-
-.myButtons {
-    box-shadow: -1px 1px 3px #0006;
-    color: #fff;
-}
-
-.buttons__container {
-    display: flex;
-    justify-content: space-around;
-    padding: 1rem;
 }
 
 .team-stats__container {

@@ -2,7 +2,6 @@ import { Card, Col, Row, Button, Image } from "react-bootstrap";
 import "./SearchResults.css";
 
 const Searchresult = ({ results }) => {
-  console.log(results)
   return (
     <>
     <div className="search__container">

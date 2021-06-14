@@ -1,25 +1,6 @@
 @import url(../../../index.css);
 
 
-.stats-title {
-    color: #f9eac3;
-    margin: 0 auto 1rem auto;
-}
-
-.featuredPower {
-    color: var(--yellow);
-}
-
-.subtitles {
-    font-size: large;
-}
-
-.row__stats {
-    background: #f9eac3;
-    border-radius: 7px;
-    padding: 8px;
-}
-
 .col__stats {
     display:flex;
     flex-direction: column;
@@ -34,6 +15,25 @@
     justify-content: center;
 }
 
+.featuredPower {
+    color: var(--yellow);
+}
+
 .iconColor {
     color: var(--yellow);
+}
+
+.row__stats {
+    background: #f9eac3;
+    border-radius: 7px;
+    padding: 8px;
+}
+
+.stats-title {
+    color: #f9eac3;
+    margin: 0 auto 1rem auto;
+}
+
+.subtitles {
+    font-size: large;
 }
