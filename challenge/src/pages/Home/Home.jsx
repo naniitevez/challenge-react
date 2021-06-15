@@ -1,6 +1,6 @@
 import MyNavbar from "./components/MyNavbar";
-import { Container, Alert } from "react-bootstrap";
-import { useContext, useState } from "react";
+import { Container } from "react-bootstrap";
+import { useContext } from "react";
 import HeroesContext from "../../context/superheros/Index";
 import MyCard from "./components/MyCard";
 import GroupStats from "./components/GroupStats";

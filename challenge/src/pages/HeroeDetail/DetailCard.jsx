@@ -7,7 +7,6 @@ import {
   Row,
   Button,
 } from "react-bootstrap";
-import { useHistory } from "react-router";
 
 const DetailCard = (myHero) => {
   let combat = myHero.powerstats.combat;
