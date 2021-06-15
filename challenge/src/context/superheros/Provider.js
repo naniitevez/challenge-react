@@ -5,6 +5,7 @@ import HeroesContext from "./Index"
 const HeroesProvider = ({children}) => {
     const token = 1816870085187288;
     const [heroes, setHeroes] = useState([]);
+    const [isSearching, setIsSearching] = useState(false);
   
     //Genero un numero aleatorio para el llamado a la apipor ID.
     const randomNumber = (max, min) => {
@@ -42,7 +43,7 @@ const HeroesProvider = ({children}) => {
     }, []);
 
     return (
-        <HeroesContext.Provider value={{heroes, token}}>
+        <HeroesContext.Provider value={{heroes, token, isSearching, setIsSearching}}>
             {children}
         </HeroesContext.Provider>
     )

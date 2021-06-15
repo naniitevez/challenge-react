@@ -3,15 +3,20 @@ import { Navbar, Form, FormControl, Button } from "react-bootstrap";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 
-const MyNavbar = ({ onSearch, isSearching }) => {
+const MyNavbar = ({ isSearching }) => {
   const [searchText, setSearchText] = useState("");
   let userHistory = useHistory();
   const backInHistory = useHistory();
+  const search = useHistory();
 
   const logout = () => {
     localStorage.removeItem("token");
     userHistory.push("/");
   };
+
+  const onSearch = () => {
+    search.push(`/search/${searchText}`)
+  }
 
   return (
     <div>
@@ -27,12 +32,12 @@ const MyNavbar = ({ onSearch, isSearching }) => {
               setSearchText(e.target.value);
             }}
             type="text"
-            placeholder="Escribe el nombre de un personaje..."
+            placeholder="Busca un personaje..."
             className="mr-sm-2"
             width="30%"
           />
           <Button
-            onClick={() => onSearch(searchText)}
+            onClick={() => onSearch()}
             disabled={!searchText.length}
             variant="outline-success"
           >
@@ -41,7 +46,7 @@ const MyNavbar = ({ onSearch, isSearching }) => {
         </Form>
         {isSearching && (
           <Button onClick={() => backInHistory.push("/home")}>
-            <i class="fas fa-step-backward"></i>Volver
+            <i className="fas fa-step-backward"></i>Volver
           </Button>
         )}
         <Button variant="outline-danger" onClick={() => logout()}>
