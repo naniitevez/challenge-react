@@ -1,90 +1,71 @@
-import { Container, Row, Col, Form, Button } from "react-bootstrap";
-import callToApi from "../../api/Index";
-import "./Login.css";
-import InputComponent from "./components/InputComponent";
 import { useState } from "react";
+import { Container, Form, Button } from "react-bootstrap";
 import {useHistory} from 'react-router-dom'
+import "./Login.css";
+import MyInput from "./MyInput";
 
 const Login = () => {
   const [inputEmail, setInputEmail] = useState("");
   const [inputPassword, setInputPassword] = useState("");
-  const [validSubmit, setValidsubmit] = useState(false);
   let history = useHistory()
 
-  //Esta funcion se encarga de hacer la validación final, recibiendo un booleano si
-  //los items fueron completados.
-  const handleValidSubmit = (bool) => {
-    if (bool) {
-      setValidsubmit(true);
-    } else {
-      setValidsubmit(false);
-    }
-  };
-
-  //Al clickear el boton de ingresar, se realiza el fetch post
-  //y se guarda el token el localstorage
-  const submitOnClick = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
+    let data = {
+      email: inputEmail,
+      password: inputPassword
+    };
     
-    if (validSubmit) {
-      let data = `?email=${inputEmail}&password=${inputPassword}`
-
-      try {
-        const response = await callToApi({url: `http://challenge-react.alkemy.org${data}`,
-        method: 'POST',
-        body: {
-          email: inputEmail,
-          password: inputPassword
-        }})
-        
-        localStorage.setItem('token', response.token)
-      } catch (error) {
-        alert("Algo salió mal.")
-      }
-    } else {
-      alert("Verifica que todos los campos estén completos.")
-    }
+    let response = await fetch(`http://challenge-react.alkemy.org`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(data)
+    });
     
-    history.push("/home")
-  };
+    let result = await response.json();
+
+    if (result.error) {
+      alert(result.error)
+    } else if (result.token) {
+      localStorage.setItem('token', result.token)
+      history.push("/home")
+    }
+  }
+
 
   return (
     <>
-      <Container>
-        <Row>
-          <Col>
-            <Form className="form__container">
-              <div className="form__border">
-                <InputComponent
-                  idControl={"formBasicEmail"}
-                  label={"Email"}
-                  type={"email"}
-                  placeholder={"Ingresa tu dirección email"}
-                  state={inputEmail}
-                  setState={setInputEmail}
-                  handleValidSubmit={(bool) => handleValidSubmit(bool)}
-                />
-                <InputComponent
-                  idControl={"formBasicPassword"}
-                  label={"Contraseña"}
-                  type={"password"}
-                  placeholder={"Ingresa tu contraseña"}
-                  state={inputPassword}
-                  setState={setInputPassword}
-                  handleValidSubmit={(bool) => handleValidSubmit(bool)}
-                />
-                <Button
-                  onClick={submitOnClick}
-                  className="form__button"
-                  variant="light"
-                  type="submit"
-                >
-                  Ingresar
-                </Button>
-              </div>
-            </Form>
-          </Col>
-        </Row>
+      <Container className="myContainer">
+        <div className="form__container">
+          <p className="form-title">Login</p>
+          <Form className="myForm">
+            <MyInput
+              valueState={inputEmail}
+              setState={setInputEmail}
+              controlId={"formBasicEmail"}
+              label={"Email"}
+              type={"email"}
+              placeholder={"Ingresa un mail"}
+            />
+            <MyInput
+              valueState={inputPassword}
+              setState={setInputPassword}
+              controlId={"formBasicPassword"}
+              label={"Contraseña"}
+              type={"password"}
+              placeholder={"Ingresa la contraseña"}
+            />
+            <Button
+              onClick={handleSubmit}
+              id="myButton"
+              variant="primary"
+              block
+            >
+              Ingresar
+            </Button>
+          </Form>
+        </div>
       </Container>
     </>
   );

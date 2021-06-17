@@ -10,7 +10,7 @@ const Routes = () => {
     return (
         <HashRouter>
             <Switch>
-                {/* <Route path="/" exact component={Login}/> */}
+                <Route path="/" exact component={Login}/>
                 <Route path="/home" component={props => <RequireAuth {...props} Component={Home}/>}/>
                 <Route path="/heroes/:id" component={props => <RequireAuth {...props} Component={HeroDetail}/>}/>
                 <Route path="/search/:name" component={props => <RequireAuth {...props} Component={Searchresult}/>}/>
