@@ -33,6 +33,10 @@ const Login = () => {
     }
   }
 
+  if (localStorage.token) {
+    history.push("/home")
+  }
+
 
   return (
     <>

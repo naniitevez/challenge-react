@@ -1,36 +1,19 @@
 @import url("../../index.css");
 
-.myContainer {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.myForm {
-  border-top: 1px solid #ffffff;
-  padding-top: 0.5rem;
-}
-
-#myButton {
-  margin-top: 2rem;
-  border-radius: 27px;
-}
-
-#myButton:active {
-  box-shadow: 3px 4px #04040470;
-  transform: translateY(2px);
-}
-
 .form__container {
   width: 40%;
-  height: 50%;
+  height: 60%;
   background: #131212d3;
   padding: 2rem;
   border-radius: 9px;
   display: flex;
   flex-direction: column;
   box-shadow: -6px 6px 20px;
+}
+
+.form__input {
+  border-radius: 20px;
+  box-shadow: inset 8px 8px 8px #cde9e4, inset -8px -8px 6px #b6a3a3;
 }
 
 .form__label {
@@ -43,7 +26,30 @@
   align-self: center;
 }
 
-.form__input {
-  border-radius: 20px;
-  box-shadow: inset 8px 8px 8px #cde9e4, inset -8px -8px 6px #b6a3a3;
+.form-validation {
+  color: var(--yellow);
+}
+
+#myButton {
+  margin-top: 2rem;
+  border-radius: 27px;
+}
+
+#myButton:active {
+  box-shadow: 3px 4px #04040470;
+  transform: translateY(2px);
+}
+
+.myContainer {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.myForm {
+  border-top: 1px solid #ffffff;
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
 }
