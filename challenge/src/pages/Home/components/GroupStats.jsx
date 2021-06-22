@@ -107,7 +107,7 @@ const GroupStats = ({ heroes }) => {
   if (weightStats.length) {
     let weight = [];
     for (let i = 0; i < weightStats.length; i++) {
-      let element = weightStats[i].replace(" kg", "");
+      let element = weightStats[i].replace(" kg", "").replace(" tons", "");
       weight.push(element);
     }
     let totalWeight = weight.map((i) => Number(i));

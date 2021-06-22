@@ -16,9 +16,6 @@ const Home = () => {
         <div className="team-stats__container">
           <GroupStats heroes={heroes} />
         </div>
-      </Container>
-
-      <Container>
         <div className="row__container">
           {heroes.map((hero, index) => (
             <MyCard key={index} {...hero} />
